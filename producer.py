@@ -1,6 +1,4 @@
-from os import times_result
 import time, json
-import numpy as np
 import datetime as dt
 import requests
 from kafka import KafkaProducer

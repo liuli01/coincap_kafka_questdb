@@ -1,6 +1,4 @@
 requests
 confluent_kafka
 kafka-python
-numpy
-pandas
 datetime
