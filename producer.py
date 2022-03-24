@@ -1,27 +1,29 @@
+# importing packages
 import time, json
 import datetime as dt
 import requests
 from kafka import KafkaProducer
 
+# initializing Kafka Producer Client
 producer = KafkaProducer(bootstrap_servers=['localhost:9092'],
                          value_serializer=lambda x:
                          json.dumps(x,default=str).encode('utf-8'))
 
 print('Initialized Kafka producer at {}'.format(dt.datetime.utcnow()))
 
-
+# Creating a continuous loop to process the real time data
 while True:
-    
+    # API request
     uri = 'http://api.coincap.io/v2/assets/ethereum'
     res = requests.request("GET",uri)
 
     start_time = time.time()
-
+    # Processing API response if successful
     if (res.status_code==200):
     # read json response
         raw_data = json.loads(res.content)
 
-        # add the schema
+        # add the schema for Kafka
         data = {'schema': {
             'type': 'struct',
             'fields': [{'type': 'string', 'optional': False, 'field': 'currency'
@@ -42,7 +44,8 @@ while True:
          
     else:
         print('Failed API request at time {0}'.format(dt.datetime.utcnow()))
-
+    
     end_time = time.time()
     time_inteval = end_time - start_time
+    # setting the API to queryied every 5 minutes
     time.sleep(300 - time_inteval)
