@@ -47,5 +47,5 @@ while True:
     
     end_time = time.time()
     time_inteval = end_time - start_time
-    # setting the API to queryied every 5 minutes
+    # setting the API to be queryied every 5 minutes
     time.sleep(300 - time_inteval)
