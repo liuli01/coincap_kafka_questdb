@@ -1,3 +1,4 @@
+from os import times_result
 import time, json
 import numpy as np
 import datetime as dt
@@ -15,6 +16,8 @@ while True:
     
     uri = 'http://api.coincap.io/v2/assets/ethereum'
     res = requests.request("GET",uri)
+
+    start_time = time.time()
 
     if (res.status_code==200):
     # read json response
@@ -42,4 +45,6 @@ while True:
     else:
         print('Failed API request at time {0}'.format(dt.datetime.utcnow()))
 
-    time.sleep(300)
+    end_time = time.time()
+    time_inteval = end_time - start_time
+    time.sleep(300 - time_inteval)
