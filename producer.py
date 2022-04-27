@@ -26,9 +26,9 @@ while True:
         # add the schema for Kafka
         data = {'schema': {
             'type': 'struct',
-            'fields': [{'type': 'string', 'optional': False, 'field': 'currency'
+            'fields': [{'type': 'symbol', 'optional': False, 'field': 'currency'
                     }, {'type': 'float', 'optional': False, 'field': 'amount'
-                    }, {'type': 'string', 'optional': False,
+                    }, {'type': 'timestamp', 'optional': False,
                     'field': 'timestamp'}],
             'optional': False,
             'name': 'Coincap',
@@ -46,6 +46,6 @@ while True:
         print('Failed API request at time {0}'.format(dt.datetime.utcnow()))
     
     end_time = time.time()
-    time_inteval = end_time - start_time
+    time_interval = end_time - start_time
     # setting the API to be queried every 5 minutes
-    time.sleep(300 - time_inteval)
+    time.sleep(300 - time_interval)
