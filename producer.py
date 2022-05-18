@@ -26,9 +26,9 @@ while True:
         # add the schema for Kafka
         data = {'schema': {
             'type': 'struct',
-            'fields': [{'type': 'symbol', 'optional': False, 'field': 'currency'
+            'fields': [{'type': 'string', 'optional': False, 'field': 'currency'
                     }, {'type': 'float', 'optional': False, 'field': 'amount'
-                    }, {'type': 'timestamp', 'optional': False,
+                    }, {'type': 'string', 'optional': False,
                     'field': 'timestamp'}],
             'optional': False,
             'name': 'Coincap',
