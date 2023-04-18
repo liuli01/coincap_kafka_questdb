@@ -3,6 +3,9 @@ This is a demo of a data pipeline that collects real time ETH data from coincap'
 原文介绍:https://dzone.com/articles/building-a-data-pipeline-using-questdb-and-conflue
 中文介绍：https://www.modb.pro/db/474795
 
+
+## 试运行docker-compose文件、挂载是docker-compose-volume.yaml
+
 ## 将postgres-sink-eth.json 信息注册到kafka
 ```shell
 curl -X POST -H "Accept:application/json" -H "Content-Type:application/json" --data @postgres-sink-eth.json http://localhost:8083/connectors
