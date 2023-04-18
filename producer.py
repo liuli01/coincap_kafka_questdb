@@ -28,8 +28,7 @@ while True:
             'type': 'struct',
             'fields': [{'type': 'string', 'optional': False, 'field': 'currency'
                     }, {'type': 'float', 'optional': False, 'field': 'amount'
-                    }, {'type': 'string', 'optional': False,
-                    'field': 'timestamp'}],
+                    }, {'type': 'string', 'optional': False,'field': 'timestamp'}],
             'optional': False,
             'name': 'Coincap',
             }, 'payload': {'timestamp': dt.datetime.utcnow(),
